@@ -66,50 +66,44 @@ BSD 3-Clause License (see LICENSE.txt for more details)
 
 #### GENERAL PREPROCESSING
 **bci_analysis\1_processing\main_process_hdf.py**
-DATA PROCESSING STARTS WITH THIS FILE. 
-
-Main script for extracting neural and behavioral data and related decoder information for each BCI session (more details in file). 
-
-Running this file will iterate through all sessions. Extracted results are saved in Pandas dataframes and saved to .pkl files. 
-
-RUNTIME on DEMO_data: < 2 minutes total
+- DATA PROCESSING STARTS WITH THIS FILE. 
+- Main script for extracting neural and behavioral data and related decoder information for each BCI session (more details in file). 
+- Running this file will iterate through all sessions. Extracted results are saved in Pandas dataframes and saved to .pkl files. 
+- RUNTIME on DEMO_data: < 2 minutes total
 
 
 **bci_analysis\1_processing\main_get_trial_inds.py**
-Saves the trials indices (and their lengths) for baseline (block 1) and perturbation (block 2) blocks to Pandas dataframes (.pkl files). 
-
-Determines the minimum length of a trial within the baselien and perturbation blocks.
-
-Ensures that the minimum number of trials needed exist.
-
-RUNTIME on DEMO_data: < 10 seconds total
+- Saves the trials indices (and their lengths) for baseline (block 1) and perturbation (block 2) blocks to Pandas dataframes (.pkl files). 
+- Determines the minimum length of a trial within the baselien and perturbation blocks.
+- Ensures that the minimum number of trials needed exist.
+- RUNTIME on DEMO_data: < 10 seconds total
 	  
 
 
 #### BEHAVIOR
 **bci_analysis\1_processing\2_behavior\main_behavior.py**
-	-Calculates behavioral metrics presented in the paper (trial time and distance) as well as additional behavioral metrics (angular error, movement error, movement variability).
-	-RUNTIME on DEMO_data: < 15 seconds total
+- Calculates behavioral metrics presented in the paper (trial time and distance) as well as additional behavioral metrics (angular error, movement error, movement variability).
+- RUNTIME on DEMO_data: < 15 seconds total
 
 
 #### NEURAL ANALYSIS - VARIANCE/FACTOR ANALYSIS (FA) for paper 1
 **bci_analysis\1_preprocessing\3_FA\main_FA_TTT.py**
-	-Performs factor analysis on spiking data (1 baseline block model, 1 perturbation block model). The input is the number of trials by the number of neurons. Each entry is the number of spikes over a fixed 900ms window for neuron, i, on trial, t.
-	-Script contains a series of steps: (1) data formatting, (2) cross-validation, (3) fit models, (4) compute metrics.  
-	-Not used for paper 2 (Population-level constraints on single neuron..)
+- Performs factor analysis on spiking data (1 baseline block model, 1 perturbation block model). The input is the number of trials by the number of neurons. Each entry is the number of spikes over a fixed 900ms window for neuron, i, on trial, t.
+- Script contains a series of steps: (1) data formatting, (2) cross-validation, (3) fit models, (4) compute metrics.  
+- Not used for paper 2 (Population-level constraints on single neuron..)
 
 
 #### NEURAL ANALYSIS - VARIANCE/FACTOR ANALYSIS (FA) for paper 2
 **bci_analysis\1_preprocessing\3_FA\main_FA_TTT_for_tuning.py**
-	-Very similar to main_FA_TTT.py, except only the baseline model is used in later analyses and the window to count spikes per neuron & trial is different (to match tuning methods).
-	-RUNTIME on DEMO_data: (1) data formating, < 5 seconds total; (2) cross-validation < 2 minutes total ; (3) fit models & (4) compute metrics < 5 seconds total
+- Very similar to main_FA_TTT.py, except only the baseline model is used in later analyses and the window to count spikes per neuron & trial is different (to match tuning methods).
+- RUNTIME on DEMO_data: (1) data formating, < 5 seconds total; (2) cross-validation < 2 minutes total ; (3) fit models & (4) compute metrics < 5 seconds total
 
 
 
 #### NEURAL ANALYSIS - TUNING CURVE for paper 2
 **bci_analysis\1_preprocessing\3_FA\main_tuning_curve.py**
-	-Fit cosine tuning curves to each BCI neuron and assess significance using bootstrapping techniques.
-	-RUNTIME on DEMO_data: (1) generate boostrap means, about 3 minutes total; (2) fit cosine tuning curves, > 80 minutes total (45 minutes for Brazos, rotation (many neurons)); (3) calculate changes in preferred direction, < 20 seconds total
+- Fit cosine tuning curves to each BCI neuron and assess significance using bootstrapping techniques.
+- RUNTIME on DEMO_data: (1) generate boostrap means, about 3 minutes total; (2) fit cosine tuning curves, > 80 minutes total (45 minutes for Brazos, rotation (many neurons)); (3) calculate changes in preferred direction, < 20 seconds total
 
 
 

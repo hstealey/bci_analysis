@@ -66,17 +66,23 @@ BSD 3-Clause License (see LICENSE.txt for more details)
 
 #### GENERAL PREPROCESSING
 **bci_analysis\1_processing\main_process_hdf.py**
-	-DATA PROCESSING STARTS WITH THIS FILE. 
-	-Main script for extracting neural and behavioral data and related decoder information for each BCI session (more details in file). 
-	-Running this file will iterate through all sessions. Extracted results are saved in Pandas dataframes and saved to .pkl files. 
-	-RUNTIME on DEMO_data: < 2 minutes total
+DATA PROCESSING STARTS WITH THIS FILE. 
+
+Main script for extracting neural and behavioral data and related decoder information for each BCI session (more details in file). 
+
+Running this file will iterate through all sessions. Extracted results are saved in Pandas dataframes and saved to .pkl files. 
+
+RUNTIME on DEMO_data: < 2 minutes total
 
 
 **bci_analysis\1_processing\main_get_trial_inds.py**
-	-Saves the trials indices (and their lengths) for baseline (block 1) and perturbation (block 2) blocks to Pandas dataframes (.pkl files). 
-	-Determines the minimum length of a trial within the baselien and perturbation blocks.
-	-Ensures that the minimum number of trials needed exist.
-	-RUNTIME on DEMO_data: < 10 seconds total
+Saves the trials indices (and their lengths) for baseline (block 1) and perturbation (block 2) blocks to Pandas dataframes (.pkl files). 
+
+Determines the minimum length of a trial within the baselien and perturbation blocks.
+
+Ensures that the minimum number of trials needed exist.
+
+RUNTIME on DEMO_data: < 10 seconds total
 	  
 
 

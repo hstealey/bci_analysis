@@ -49,8 +49,8 @@ dRoot = {'rotation': os.path.join(root_path, 'data', 'bci_rotation'),
 pickle_path = os.path.join(root_path, 'results')#'DEMO_pickles')
 
 
-modes = ['rotation']#, 'shuffle']
-dSubject = {0:['airp', 'Airport']}#, 1:['braz', 'Brazos']}
+modes = ['rotation', 'shuffle']
+dSubject = {0:['airp', 'Airport'], 1:['braz', 'Brazos']}
 
 
 
